@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#191A20" />
+<meta name="description" content="Terms of Service for StrictAlarm — an on-device alarm and wake-up mission app by Muhammad LLC. Includes wake-up reliability disclaimer, purchase terms, and license details." />
+<title>Terms of Service — StrictAlarm</title>
+
+<!-- App icon as favicon -->
+<link rel="icon" type="image/webp" href="logo.webp" />
+<link rel="apple-touch-icon" href="logo.webp" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#FFD000;
+    --gold-dim:#BD9800;
+    --gold-deep:#7B6200;
+    --slate:#9FABCD;
+    --slate-deep:#6B7796;
+    --slate-pale:#EEF0FF;
+    --bg:#191A20;
+    --surface:#2C2C2E;
+    --surface-2:#343438;
+    --surface-3:#3D3D42;
+    --on-surface:#FFFFFF;
+    --on-surface-var:#C1C3CE;
+    --muted:#6C7085;
+    --outline:rgba(108,112,133,.28);
+    --outline-soft:rgba(108,112,133,.16);
+    --error:#C16357;
+    --radius-lg:20px;
+    --radius:16px;
+    --radius-sm:12px;
+    --maxw:1200px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--on-surface-var);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:rgba(255,208,0,.3);color:#fff;}
+
+  a{color:var(--slate);text-decoration:none;transition:color .18s var(--ease);}
+  a:hover{color:var(--gold);}
+
+  img,svg{display:block;}
+
+  /* ================= READING PROGRESS ================= */
+  .read-progress{
+    position:fixed;
+    top:0;left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold), #fff8d6);
+    box-shadow:0 0 14px rgba(255,208,0,.6);
+    z-index:100;
+    transition:width .1s linear;
+    border-radius:0 2px 2px 0;
+  }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:78px 24px 66px;
+    border-bottom:1px solid var(--outline-soft);
+    background:var(--bg);
+    isolation:isolate;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(1100px 520px at 8% -40%, rgba(255,208,0,.15), transparent 62%),
+      radial-gradient(900px 460px at 96% -20%, rgba(159,171,205,.13), transparent 66%);
+    z-index:-2;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(193,195,206,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(193,195,206,.045) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse at 50% 0%, #000 25%, transparent 78%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 0%, #000 25%, transparent 78%);
+    z-index:-1;
+    pointer-events:none;
+  }
+  .orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.5;
+    z-index:-1;
+    pointer-events:none;
+  }
+  .orb-a{
+    width:420px;height:420px;
+    top:-180px;left:-100px;
+    background:radial-gradient(circle, rgba(255,208,0,.35), transparent 68%);
+    animation:floatA 18s ease-in-out infinite;
+  }
+  .orb-b{
+    width:380px;height:380px;
+    top:-120px;right:-90px;
+    background:radial-gradient(circle, rgba(159,171,205,.28), transparent 70%);
+    animation:floatB 22s ease-in-out infinite;
+  }
+  @keyframes floatA{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(40px,30px) scale(1.08);}
+  }
+  @keyframes floatB{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(-34px,26px) scale(1.06);}
+  }
+
+  .hero-inner{
+    position:relative;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:32px;
+  }
+
+  /* ---------- LOGO (image + fallback) ---------- */
+  .logo-wrap{
+    position:relative;
+    flex:none;
+    width:56px;
+    height:56px;
+    border-radius:16px;
+    overflow:hidden;
+    isolation:isolate;
+    background:linear-gradient(150deg, var(--gold), var(--gold-dim));
+    box-shadow:
+      0 14px 34px -10px rgba(255,208,0,.55),
+      0 0 0 1px rgba(255,208,0,.25),
+      inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .header-icon{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:inherit;
+  }
+  .logo-fallback{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    display:none;
+    place-items:center;
+    color:#000;
+  }
+  .logo-fallback svg{width:28px;height:28px;}
+  .header-icon.is-missing{display:none;}
+  .header-icon.is-missing + .logo-fallback{display:grid;}
+
+  /* small logo variant (footer) */
+  .logo-wrap.sm{
+    width:30px;
+    height:30px;
+    border-radius:9px;
+    box-shadow:
+      0 6px 16px -6px rgba(255,208,0,.5),
+      0 0 0 1px rgba(255,208,0,.2);
+  }
+  .logo-wrap.sm .logo-fallback svg{width:16px;height:16px;}
+
+  .brand-text{
+    display:flex;
+    flex-direction:column;
+    gap:1px;
+  }
+  .brand-name{
+    font-weight:700;
+    letter-spacing:-.01em;
+    color:var(--on-surface);
+    font-size:1.05rem;
+    line-height:1.2;
+  }
+  .brand-sub{
+    font-size:.74rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    opacity:.85;
+  }
+
+  .hero h1{
+    margin:0 0 18px;
+    font-size:clamp(2.3rem, 5.4vw, 3.6rem);
+    line-height:1.08;
+    letter-spacing:-.035em;
+    font-weight:800;
+    color:var(--on-surface);
+    max-width:20ch;
+  }
+
+  .lede{
+    margin:0 0 32px;
+    max-width:64ch;
+    font-size:clamp(1rem, 1.6vw, 1.13rem);
+    line-height:1.65;
+    color:var(--on-surface-var);
+  }
+
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:.82rem;
+    font-weight:600;
+    letter-spacing:.01em;
+    color:var(--on-surface-var);
+    background:rgba(44,44,46,.7);
+    border:1px solid var(--outline);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .pill.accent{
+    color:var(--gold);
+    background:rgba(255,208,0,.08);
+    border-color:rgba(255,208,0,.3);
+  }
+  .live-dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 0 rgba(255,208,0,.6);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,208,0,.55);}
+    70%{box-shadow:0 0 0 8px rgba(255,208,0,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,208,0,0);}
+  }
+  .pill svg{width:14px;height:14px;opacity:.85;}
+
+  .trust-stats{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+    max-width:680px;
+  }
+  .trust-stat{
+    padding:18px 20px;
+    border-radius:14px;
+    background:linear-gradient(150deg, rgba(44,44,46,.9), rgba(44,44,46,.55));
+    border:1px solid var(--outline);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    transition:transform .3s var(--ease), border-color .3s var(--ease);
+  }
+  .trust-stat:hover{
+    transform:translateY(-2px);
+    border-color:rgba(255,208,0,.28);
+  }
+  .trust-num{
+    display:block;
+    font-size:1.65rem;
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-.03em;
+    color:var(--gold);
+    margin-bottom:4px;
+  }
+  .trust-label{
+    display:block;
+    font-size:.78rem;
+    font-weight:500;
+    line-height:1.4;
+    color:var(--on-surface-var);
+  }
+
+  /* ================= LAYOUT ================= */
+  .shell{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:52px 24px 110px;
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:60px;
+    align-items:start;
+  }
+
+  /* ================= TOC ================= */
+  .toc{
+    position:sticky;
+    top:36px;
+    align-self:start;
+  }
+  .toc-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 16px;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .toc-head::before{
+    content:"";
+    width:18px;height:1px;
+    background:var(--gold);
+    opacity:.7;
+  }
+  .toc nav{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .toc nav a{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:9px 14px;
+    border-radius:10px;
+    font-size:.87rem;
+    line-height:1.4;
+    color:var(--on-surface-var);
+    transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+  }
+  .toc nav a .toc-num{
+    font-size:.68rem;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+    color:var(--muted);
+    min-width:16px;
+    transition:color .2s var(--ease);
+  }
+  .toc nav a:hover{
+    background:rgba(255,255,255,.04);
+    color:var(--on-surface);
+  }
+  .toc nav a.active{
+    background:rgba(255,208,0,.1);
+    color:var(--gold);
+    font-weight:600;
+  }
+  .toc nav a.active .toc-num{color:var(--gold);}
+  .toc nav a.active::before{
+    content:"";
+    position:absolute;
+    left:0;top:50%;
+    transform:translateY(-50%);
+    width:2px;height:18px;
+    border-radius:2px;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(255,208,0,.6);
+  }
+
+  .toc-contact{
+    margin-top:28px;
+    padding:20px;
+    border-radius:16px;
+    background:linear-gradient(160deg, rgba(44,44,46,.9), rgba(44,44,46,.55));
+    border:1px solid var(--outline);
+    position:relative;
+    overflow:hidden;
+  }
+  .toc-contact::after{
+    content:"";
+    position:absolute;
+    right:-30px;top:-30px;
+    width:100px;height:100px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,208,0,.16), transparent 68%);
+    pointer-events:none;
+  }
+  .toc-contact-label{
+    margin:0 0 4px;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .toc-contact-title{
+    margin:0 0 12px;
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--on-surface);
+    line-height:1.35;
+  }
+  .toc-contact a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:.86rem;
+    font-weight:600;
+    color:var(--gold);
+    word-break:break-all;
+  }
+  .toc-contact a svg{width:14px;height:14px;flex:none;}
+
+  /* ================= MAIN CONTENT ================= */
+  main{min-width:0;}
+
+  /* Short version */
+  .short{
+    position:relative;
+    margin-bottom:32px;
+    padding:1px;
+    border-radius:var(--radius-lg);
+    background:linear-gradient(135deg, rgba(255,208,0,.5), rgba(159,171,205,.15) 50%, rgba(255,208,0,.2));
+    box-shadow:0 20px 50px -30px rgba(255,208,0,.4);
+    scroll-margin-top:28px;
+  }
+  .short-inner{
+    position:relative;
+    border-radius:calc(var(--radius-lg) - 1px);
+    background:linear-gradient(155deg, rgba(44,44,46,.97), rgba(44,44,46,.92));
+    padding:28px 30px;
+    overflow:hidden;
+  }
+  .short-inner::after{
+    content:"";
+    position:absolute;
+    right:-60px;bottom:-80px;
+    width:240px;height:240px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,208,0,.12), transparent 68%);
+    pointer-events:none;
+  }
+  .short-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:16px;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    background:rgba(255,208,0,.1);
+    border:1px solid rgba(255,208,0,.25);
+  }
+  .short-eyebrow svg{width:12px;height:12px;}
+  .short h2{
+    margin:0 0 18px;
+    font-size:1.28rem;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--on-surface);
+  }
+  .short ul{
+    position:relative;
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    gap:14px;
+    z-index:1;
+  }
+  .short li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    color:var(--slate-pale);
+    font-size:.96rem;
+    line-height:1.55;
+  }
+  .short li .check{
+    flex:none;
+    width:22px;height:22px;
+    margin-top:1px;
+    display:grid;place-items:center;
+    border-radius:7px;
+    background:rgba(255,208,0,.14);
+    border:1px solid rgba(255,208,0,.3);
+    color:var(--gold);
+  }
+  .short li .check svg{width:13px;height:13px;}
+
+  /* ================= SECTION CARDS ================= */
+  section.card{
+    position:relative;
+    background:linear-gradient(180deg, rgba(44,44,46,.95), rgba(44,44,46,.78));
+    border:1px solid var(--outline);
+    border-radius:var(--radius-lg);
+    padding:32px 34px;
+    margin-bottom:20px;
+    scroll-margin-top:28px;
+    transition:border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  section.card:hover{
+    border-color:rgba(255,208,0,.18);
+    box-shadow:0 22px 44px -34px rgba(0,0,0,.9);
+  }
+
+  /* Warning accent card (Section 1) */
+  section.card.warning{
+    background:linear-gradient(180deg, rgba(64,42,38,.92), rgba(44,44,46,.82));
+    border-color:rgba(193,99,87,.4);
+  }
+  section.card.warning:hover{
+    border-color:rgba(193,99,87,.6);
+    box-shadow:0 22px 44px -34px rgba(193,99,87,.35);
+  }
+  section.card.warning .sec-icon{
+    background:linear-gradient(150deg, rgba(193,99,87,.22), rgba(193,99,87,.08));
+    border-color:rgba(193,99,87,.35);
+    color:#e39a8e;
+  }
+  section.card.warning .sec-num{color:rgba(227,154,142,.9);}
+
+  .card-head{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    margin-bottom:22px;
+  }
+  .sec-icon{
+    flex:none;
+    width:46px;height:46px;
+    display:grid;place-items:center;
+    border-radius:13px;
+    background:linear-gradient(150deg, rgba(255,208,0,.16), rgba(255,208,0,.06));
+    border:1px solid rgba(255,208,0,.25);
+    color:var(--gold);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .sec-icon svg{width:21px;height:21px;}
+  .sec-title-wrap{
+    min-width:0;
+    padding-top:2px;
+  }
+  .sec-num{
+    display:block;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+    font-variant-numeric:tabular-nums;
+  }
+  h2{
+    margin:0;
+    font-size:1.22rem;
+    line-height:1.32;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--on-surface);
+  }
+  .card p{
+    margin:0 0 15px;
+    font-size:.965rem;
+    line-height:1.72;
+    color:var(--on-surface-var);
+  }
+  .card p:last-child{margin-bottom:0;}
+  .card p strong{color:var(--on-surface);font-weight:600;}
+
+  /* Policy links inside cards */
+  .card p a, .sub-block a, .warn-box a{
+    color:var(--gold);
+    text-decoration:underline;
+    text-underline-offset:2px;
+    text-decoration-thickness:1px;
+    word-break:break-word;
+  }
+  .card p a:hover, .sub-block a:hover, .warn-box a:hover{color:#fff8d6;}
+
+  /* ================= WARNING BOX (Section 1) ================= */
+  .warn-box{
+    margin-top:20px;
+    padding:22px 24px;
+    border-radius:14px;
+    background:rgba(193,99,87,.09);
+    border:1px solid rgba(193,99,87,.35);
+    border-left:3px solid #C16357;
+  }
+  .warn-box-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .warn-box-head svg{
+    width:19px;height:19px;
+    color:#e39a8e;
+    flex:none;
+  }
+  .warn-box-head span{
+    font-size:.8rem;
+    font-weight:750;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#e39a8e;
+  }
+  .warn-box ul{
+    margin:0 0 14px;
+    padding-left:20px;
+    list-style:disc;
+    font-size:.93rem;
+    line-height:1.68;
+    color:#e8d5d2;
+  }
+  .warn-box ul li{
+    margin-bottom:6px;
+    padding-left:2px;
+  }
+  .warn-box ul li::marker{color:#C16357;}
+  .warn-box ul li:last-child{margin-bottom:0;}
+  .warn-box p{
+    margin:0;
+    font-size:.93rem;
+    line-height:1.68;
+    color:#e8d5d2;
+  }
+  .warn-box p strong{color:#fff;font-weight:650;}
+
+  /* ================= SUB-BLOCKS (Purchases etc.) ================= */
+  .sub-block{
+    margin-top:20px;
+    padding:22px 24px;
+    border-radius:14px;
+    background:rgba(25,26,32,.5);
+    border:1px solid var(--outline-soft);
+    transition:background .25s var(--ease), border-color .25s var(--ease);
+  }
+  .sub-block:hover{
+    background:rgba(25,26,32,.68);
+    border-color:rgba(255,208,0,.16);
+  }
+  .sub-block h3{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:9px;
+    margin:0 0 13px;
+    font-size:1.02rem;
+    font-weight:650;
+    line-height:1.35;
+    color:var(--on-surface);
+    letter-spacing:-.01em;
+  }
+  .sub-badge{
+    display:inline-flex;
+    align-items:center;
+    padding:3px 9px;
+    border-radius:6px;
+    font-size:.62rem;
+    font-weight:750;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    background:rgba(255,208,0,.1);
+    border:1px solid rgba(255,208,0,.22);
+    white-space:nowrap;
+  }
+  .sub-block p{
+    margin:0 0 11px;
+    font-size:.93rem;
+    line-height:1.7;
+    color:var(--on-surface-var);
+  }
+  .sub-block p:last-child{margin-bottom:0;}
+  .sub-block p strong{color:var(--on-surface);font-weight:600;}
+  .sub-block ul{
+    margin:0 0 13px;
+    padding-left:20px;
+    list-style:disc;
+    font-size:.92rem;
+    line-height:1.68;
+    color:var(--on-surface-var);
+  }
+  .sub-block ul li{
+    margin-bottom:5px;
+    padding-left:2px;
+  }
+  .sub-block ul li::marker{color:var(--gold);}
+  .sub-block ul li:last-child{margin-bottom:0;}
+
+  /* ================= RESPONSIBILITY LIST (Section 2) ================= */
+  .resp-grid{
+    display:grid;
+    gap:12px;
+    margin-top:4px;
+  }
+  .resp{
+    display:flex;
+    gap:16px;
+    padding:18px 20px;
+    border-radius:14px;
+    background:rgba(25,26,32,.5);
+    border:1px solid var(--outline-soft);
+    transition:background .25s var(--ease), border-color .25s var(--ease);
+  }
+  .resp:hover{
+    background:rgba(25,26,32,.72);
+    border-color:rgba(255,208,0,.18);
+  }
+  .resp-icon{
+    flex:none;
+    width:38px;height:38px;
+    display:grid;place-items:center;
+    border-radius:10px;
+    background:rgba(159,171,205,.1);
+    border:1px solid rgba(159,171,205,.2);
+    color:var(--slate);
+  }
+  .resp-icon svg{width:18px;height:18px;}
+  .resp-body{min-width:0;flex:1;}
+  .resp-title{
+    margin:0 0 7px;
+    font-size:.97rem;
+    font-weight:650;
+    color:var(--on-surface);
+    line-height:1.35;
+  }
+  .resp-desc{
+    margin:0;
+    font-size:.915rem;
+    line-height:1.62;
+    color:var(--on-surface-var);
+  }
+
+  /* ================= THIRD-PARTY SERVICES LIST ================= */
+  .services{
+    display:grid;
+    gap:10px;
+    margin:4px 0 0;
+    padding:0;
+    list-style:none;
+  }
+  .service{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    padding:14px 18px;
+    border-radius:12px;
+    background:rgba(25,26,32,.45);
+    border:1px solid var(--outline-soft);
+    transition:background .25s var(--ease);
+  }
+  .service:hover{background:rgba(25,26,32,.65);}
+  .service-icon{
+    flex:none;
+    width:30px;height:30px;
+    display:grid;place-items:center;
+    border-radius:8px;
+    background:rgba(159,171,205,.1);
+    border:1px solid rgba(159,171,205,.2);
+    color:var(--slate);
+  }
+  .service-icon svg{width:15px;height:15px;}
+  .service-text{
+    min-width:0;
+    font-size:.93rem;
+    line-height:1.55;
+    color:var(--on-surface-var);
+  }
+  .service-text strong{
+    display:block;
+    margin-bottom:2px;
+    color:var(--on-surface);
+    font-weight:650;
+  }
+
+  /* ================= CAPS TEXT (Legal) ================= */
+  .caps-block{
+    margin-top:16px;
+    padding:18px 20px;
+    border-radius:12px;
+    background:rgba(25,26,32,.55);
+    border:1px solid var(--outline-soft);
+    font-size:.86rem;
+    line-height:1.7;
+    letter-spacing:.015em;
+    color:var(--on-surface-var);
+    text-transform:uppercase;
+  }
+  .caps-block strong{color:var(--on-surface);font-weight:700;}
+
+  /* ================= CONTACT ================= */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:12px;
+    margin-top:20px;
+  }
+  .contact-item{
+    position:relative;
+    padding:18px 20px;
+    border-radius:14px;
+    background:rgba(25,26,32,.5);
+    border:1px solid var(--outline-soft);
+    transition:border-color .25s var(--ease), background .25s var(--ease);
+  }
+  .contact-item:hover{
+    border-color:rgba(255,208,0,.2);
+    background:rgba(25,26,32,.7);
+  }
+  .contact-label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:7px;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .contact-label svg{width:12px;height:12px;}
+  .contact-value{
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--on-surface);
+    word-break:break-word;
+    line-height:1.45;
+  }
+  .contact-value a{color:var(--gold);}
+  .copy-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .copy-btn{
+    flex:none;
+    width:30px;height:30px;
+    display:grid;place-items:center;
+    border-radius:8px;
+    background:rgba(255,208,0,.1);
+    border:1px solid rgba(255,208,0,.25);
+    color:var(--gold);
+    cursor:pointer;
+    transition:background .2s var(--ease), transform .2s var(--ease);
+  }
+  .copy-btn:hover{background:rgba(255,208,0,.2);transform:translateY(-1px);}
+  .copy-btn:active{transform:scale(.94);}
+  .copy-btn svg{width:14px;height:14px;}
+
+  /* ================= FOOTER ================= */
+  footer{
+    border-top:1px solid var(--outline-soft);
+    padding:36px 24px 52px;
+    background:linear-gradient(180deg, transparent, rgba(0,0,0,.2));
+  }
+  .footer-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    justify-content:space-between;
+    align-items:center;
+    font-size:.85rem;
+    color:var(--muted);
+  }
+  .footer-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    color:var(--on-surface-var);
+    font-weight:500;
+  }
+  .footer-links a:hover{color:var(--gold);}
+
+  /* ================= BACK TO TOP ================= */
+  .to-top{
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    width:48px;height:48px;
+    display:grid;place-items:center;
+    border-radius:50%;
+    border:none;
+    background:rgba(44,44,46,.92);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    color:var(--gold);
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(16px) scale(.9);
+    pointer-events:none;
+    transition:opacity .3s var(--ease), transform .3s var(--ease), background .2s var(--ease);
+    z-index:60;
+    box-shadow:0 10px 30px -8px rgba(0,0,0,.6);
+  }
+  .to-top.show{opacity:1;transform:none;pointer-events:auto;}
+  .to-top:hover{background:rgba(255,208,0,.16);}
+  .to-top svg.arrow{
+    width:20px;height:20px;
+    position:relative;
+    z-index:2;
+  }
+  .to-top svg.ring{
+    position:absolute;
+    inset:0;
+    width:100%;height:100%;
+    transform:rotate(-90deg);
+    z-index:1;
+  }
+  .ring-track{
+    fill:none;
+    stroke:rgba(255,208,0,.18);
+    stroke-width:2;
+  }
+  .ring-fill{
+    fill:none;
+    stroke:var(--gold);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-dasharray:132;
+    stroke-dashoffset:132;
+    transition:stroke-dashoffset .1s linear;
+  }
+
+  /* ================= TOAST ================= */
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:32px;
+    transform:translate(-50%, 20px);
+    padding:12px 20px;
+    border-radius:12px;
+    background:rgba(44,44,46,.96);
+    border:1px solid rgba(255,208,0,.3);
+    color:var(--on-surface);
+    font-size:.88rem;
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s var(--ease), transform .25s var(--ease);
+    z-index:200;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 16px 40px -12px rgba(0,0,0,.7);
+  }
+  .toast.show{opacity:1;transform:translate(-50%, 0);}
+  .toast svg{width:16px;height:16px;color:var(--gold);flex:none;}
+
+  /* ================= REVEAL ANIMATION ================= */
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s var(--ease), transform .7s var(--ease);
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:none;
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:980px){
+    .shell{
+      grid-template-columns:1fr;
+      gap:36px;
+      padding-top:40px;
+    }
+    .toc{
+      position:static;
+      padding:22px 24px;
+      border-radius:var(--radius-lg);
+      background:rgba(44,44,46,.7);
+      border:1px solid var(--outline);
+    }
+    .toc nav{
+      flex-direction:row;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .toc nav a{
+      padding:7px 14px;
+      border:1px solid var(--outline);
+      border-radius:999px;
+      font-size:.83rem;
+    }
+    .toc nav a .toc-num{display:none;}
+    .toc nav a.active::before{display:none;}
+    .toc-contact{margin-top:18px;}
+  }
+
+  @media (max-width:640px){
+    .hero{padding:56px 20px 48px;}
+    .shell{padding:28px 18px 88px;gap:28px;}
+    section.card{padding:26px 22px;}
+    .short-inner{padding:24px 22px;}
+    .card-head{gap:13px;}
+    .sec-icon{width:42px;height:42px;border-radius:12px;}
+    .sec-icon svg{width:19px;height:19px;}
+    h2{font-size:1.13rem;}
+    .trust-stats{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .trust-stat{padding:14px 18px;}
+    .trust-num{font-size:1.4rem;}
+    .resp{padding:16px;gap:13px;}
+    .resp-icon{width:34px;height:34px;}
+    .sub-block{padding:18px 18px;}
+    .sub-block h3{font-size:.97rem;}
+    .warn-box{padding:18px 18px;}
+    .caps-block{font-size:.79rem;padding:16px 17px;}
+    .to-top{right:16px;bottom:16px;width:44px;height:44px;}
+    .footer-inner{flex-direction:column;align-items:flex-start;gap:14px;}
+    .brand{margin-bottom:24px;}
+    .hero h1{max-width:none;}
+    .logo-wrap{width:50px;height:50px;border-radius:14px;}
+    .logo-fallback svg{width:25px;height:25px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="readProgress" aria-hidden="true"></div>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <div class="brand">
+      <!-- App logo (logo.webp) -->
+      <div class="logo-wrap">
+        <img class="header-icon" src="logo.webp" alt="StrictAlarm icon" width="56" height="56" onerror="this.classList.add('is-missing')" />
+        <span class="logo-fallback" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="13" r="8"/>
+            <path d="M12 9.5V13l2.6 2.2"/>
+            <path d="M4.5 3.2 2 5.8"/>
+            <path d="M19.5 3.2 22 5.8"/>
+          </svg>
+        </span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">StrictAlarm</span>
+        <span class="brand-sub">Legal · Terms</span>
+      </div>
+    </div>
+
+    <h1>Terms of Service</h1>
+    <p class="lede">
+      These Terms govern your download, access, and use of StrictAlarm. By installing or using
+      the App, you agree to be bound by them — including the wake-up reliability disclaimer,
+      purchase terms, and license limitations described below.
+    </p>
+
+    <div class="meta">
+      <span class="pill accent">
+        <span class="live-dot"></span>
+        Last updated: November 22, 2026
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~8 min read
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        Android
+      </span>
+    </div>
+
+    <div class="trust-stats" aria-label="Key terms facts">
+      <div class="trust-stat">
+        <span class="trust-num">1×</span>
+        <span class="trust-label">Lifetime premium option</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-num">12</span>
+        <span class="trust-label">Sections, plain language</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-num">100%</span>
+        <span class="trust-label">Local alarm data</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- ================= TOC ================= -->
+  <aside class="toc">
+    <p class="toc-head">Contents</p>
+    <nav aria-label="Table of contents">
+      <a href="#purpose"><span class="toc-num">01</span>Purpose &amp; disclaimer</a>
+      <a href="#responsibilities"><span class="toc-num">02</span>User responsibilities</a>
+      <a href="#ads"><span class="toc-num">03</span>Advertisements</a>
+      <a href="#purchases"><span class="toc-num">04</span>Purchases &amp; premium</a>
+      <a href="#ip"><span class="toc-num">05</span>Intellectual property</a>
+      <a href="#third-party"><span class="toc-num">06</span>Third-party services</a>
+      <a href="#warranties"><span class="toc-num">07</span>Disclaimer of warranties</a>
+      <a href="#liability"><span class="toc-num">08</span>Limitation of liability</a>
+      <a href="#termination"><span class="toc-num">09</span>Termination</a>
+      <a href="#law"><span class="toc-num">10</span>Governing law</a>
+      <a href="#changes"><span class="toc-num">11</span>Changes to terms</a>
+      <a href="#contact"><span class="toc-num">12</span>Contact us</a>
+    </nav>
+
+    <div class="toc-contact">
+      <p class="toc-contact-label">Questions?</p>
+      <p class="toc-contact-title">We're happy to help with terms or purchase questions.</p>
+      <a href="mailto:mbilal10388@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        mbilal10388@gmail.com
+      </a>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- Short version -->
+    <div class="short reveal">
+      <div class="short-inner">
+        <span class="short-eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          The short version
+        </span>
+        <h2>Use StrictAlarm responsibly. Don't rely on it alone for critical alarms.</h2>
+        <ul>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>StrictAlarm is a personal productivity tool. It is <strong style="color:var(--on-surface)">not</strong> a life-safety, medical, or emergency system — always keep a backup alarm for high-stakes commitments.</span>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>You're responsible for granting Android permissions, using missions safely, and choosing appropriate volume levels.</span>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>Free tier may show ads via Google AdMob. Optional one-time premium purchase removes ads and unlocks extras — billed by Google Play and managed via RevenueCat. Refunds follow Google Play policy.</span>
+          </li>
+          <li>
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>The App is provided "as is". Our total liability is limited — see <a href="#liability" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">Section 08</a>.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 01 -->
+    <section class="card warning reveal" id="purpose">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 01</span>
+          <h2>Purpose of the App &amp; Wake-Up Disclaimer</h2>
+        </div>
+      </div>
+      <p>
+        StrictAlarm is a personal productivity and alarm clock utility designed to help you
+        wake up on time using customizable alarms, wake-up checks, and interactive dismissal
+        missions — such as math problems, trivia quizzes, typing challenges, shake missions,
+        barcode/QR scanning, and face-movement detection.
+      </p>
+      <p>
+        These Terms govern your download, access, and use of the StrictAlarm mobile application
+        (the "App") operated by Muhammad LLC ("we," "our," or "us"). By downloading, installing,
+        or using StrictAlarm, you agree to be bound by these Terms. If you do not agree to these
+        Terms, do not use the App.
+      </p>
+
+      <div class="warn-box">
+        <div class="warn-box-head">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Important reliability disclaimer</span>
+        </div>
+        <p style="margin-bottom:14px;">
+          While StrictAlarm uses Android exact-alarm scheduling, wake locks, and permission checks
+          to maximize alarm reliability, <strong>we do not guarantee that alarms will always sound
+          or display under every device or operating-system condition.</strong>
+        </p>
+        <p style="margin-bottom:14px;">Alarm delivery may be affected by:</p>
+        <ul>
+          <li>Device power-off or dead battery</li>
+          <li>Android OS updates</li>
+          <li>Manufacturer battery-optimization or background-task restrictions (OEM ROM limits)</li>
+          <li>Do Not Disturb or system audio restrictions</li>
+          <li>Hardware failure or revoked app permissions</li>
+        </ul>
+        <p>
+          <strong>Do not rely solely on StrictAlarm for critical, life-safety, medical,
+          emergency, or mission-critical scheduling.</strong> Always keep a backup alarm for
+          high-stakes commitments.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="card reveal" id="responsibilities">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 02</span>
+          <h2>User Responsibilities &amp; Safe Use</h2>
+        </div>
+      </div>
+      <p>When using StrictAlarm, you agree that:</p>
+
+      <div class="resp-grid">
+        <div class="resp">
+          <div class="resp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <div class="resp-body">
+            <p class="resp-title">Device &amp; permission configuration</p>
+            <p class="resp-desc">
+              You are responsible for granting and maintaining the Android permissions required
+              for your chosen alarm and mission features — such as Exact Alarms, Notifications,
+              Display Over Other Apps, Battery Optimization exemption, and Camera access for
+              barcode or face missions.
+            </p>
+          </div>
+        </div>
+
+        <div class="resp">
+          <div class="resp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="resp-body">
+            <p class="resp-title">Physical safety during missions</p>
+            <p class="resp-desc">
+              Missions such as Shake, Barcode/QR Scan, and Face Movement require physical
+              movement or walking to a specific location. You are solely responsible for using
+              the App in a safe environment and avoiding injury to yourself, others, or damage
+              to your device or surroundings.
+            </p>
+          </div>
+        </div>
+
+        <div class="resp">
+          <div class="resp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </div>
+          <div class="resp-body">
+            <p class="resp-title">Volume &amp; audio levels</p>
+            <p class="resp-desc">
+              StrictAlarm may temporarily set your device's alarm audio stream to maximum volume
+              during an active alarm to ensure you wake up. You assume responsibility for
+              choosing appropriate ringtones and environments when using high-volume alarms.
+            </p>
+          </div>
+        </div>
+
+        <div class="resp">
+          <div class="resp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="resp-body">
+            <p class="resp-title">Lawful use</p>
+            <p class="resp-desc">
+              You agree not to reverse engineer, decompile, disassemble, tamper with, or attempt
+              to bypass premium locks, licensing, or security mechanisms of the App, except as
+              expressly permitted by applicable law.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="card reveal" id="ads">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 03</span>
+          <h2>Advertisements (Free Version)</h2>
+        </div>
+      </div>
+      <p>
+        StrictAlarm may display third-party advertisements (such as banner, interstitial, or
+        rewarded ads via Google AdMob or similar ad networks) in the free tier of the App.
+      </p>
+      <p>
+        Advertisements are provided by third-party ad networks, and we are not responsible for
+        the content, accuracy, products, or services advertised by third parties. Your
+        interactions with third-party advertisers are solely between you and the advertiser.
+      </p>
+      <p>
+        Upgrading to a paid StrictAlarm Premium option (where offered) removes advertisements
+        in accordance with the selected plan's description.
+      </p>
+    </section>
+
+    <!-- 04 -->
+    <section class="card reveal" id="purchases">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 04</span>
+          <h2>In-App Purchases, Premium Features &amp; RevenueCat</h2>
+        </div>
+      </div>
+      <p>
+        StrictAlarm offers optional paid upgrades ("Premium Features"), such as ad removal and
+        access to additional wake-up missions or customization tools, which may be offered as a
+        one-time lifetime purchase and/or auto-renewing subscriptions.
+      </p>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Billing</span>Payment processing</h3>
+        <p>
+          All in-app purchases and subscriptions are processed securely through
+          <strong>Google Play Billing</strong> (and any applicable platform store) and managed
+          using <strong>RevenueCat</strong> to verify purchase entitlements. We do not directly
+          collect or store your credit card or payment account details.
+        </p>
+      </div>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Pricing</span>Prices &amp; taxes</h3>
+        <p>
+          Prices are displayed inside the App prior to purchase and may vary by region, currency,
+          and applicable local taxes. We reserve the right to modify pricing or feature tiers at
+          any time, subject to platform rules.
+        </p>
+      </div>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Renewal</span>Auto-renewing subscriptions</h3>
+        <p>
+          If you purchase a recurring subscription, it will automatically renew at the end of
+          each billing period unless canceled at least 24 hours before the renewal date through
+          your Google Play account settings.
+        </p>
+      </div>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Lifetime</span>One-time purchases</h3>
+        <p>
+          One-time purchases grant access to the specified Premium Features for the lifetime of
+          the App on your Google Play account, subject to continued platform availability.
+        </p>
+      </div>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Restore</span>Restoring purchases</h3>
+        <p>
+          You can restore eligible previous purchases on the same Google Play account using the
+          Restore Purchases option in the App.
+        </p>
+      </div>
+
+      <div class="sub-block">
+        <h3><span class="sub-badge">Refunds</span>Refund policy</h3>
+        <p>
+          Because payments are processed by Google Play, refund requests are subject to
+          <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play's Refund Policies</a>.
+          We cannot directly issue refunds for Google Play transactions, though you may contact
+          us if you experience a technical issue unlocking a verified purchase.
+        </p>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="card reveal" id="ip">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94"/><path d="M9.69 8h11.48"/><path d="M7.38 12l5.74-9.94"/><path d="M9.69 16L3.95 6.06"/><path d="M14.31 16H2.83"/><path d="M16.62 12l-5.74 9.94"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 05</span>
+          <h2>Intellectual Property</h2>
+        </div>
+      </div>
+      <p>
+        All rights, title, and interest in and to StrictAlarm — including its software code, user
+        interface design, graphics, animations, shaders, logos, custom audio assets, and
+        trademarks — are owned by Muhammad LLC or its licensors and are protected by copyright
+        and intellectual property laws.
+      </p>
+      <p>
+        You are granted a limited, non-exclusive, non-transferable, revocable license to install
+        and use the App for personal, non-commercial use.
+      </p>
+    </section>
+
+    <!-- 06 -->
+    <section class="card reveal" id="third-party">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 06</span>
+          <h2>Third-Party Services</h2>
+        </div>
+      </div>
+      <p>
+        StrictAlarm integrates third-party services and SDKs to operate effectively, including:
+      </p>
+
+      <ul class="services">
+        <li class="service">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+          </div>
+          <div class="service-text">
+            <strong>Google Play Services &amp; Google Play Billing</strong>
+            App distribution and purchase processing.
+          </div>
+        </li>
+        <li class="service">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="service-text">
+            <strong>RevenueCat</strong>
+            Entitlement and purchase status management.
+          </div>
+        </li>
+        <li class="service">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div class="service-text">
+            <strong>Third-Party Ad Networks</strong>
+            Such as Google AdMob, for displaying ads in the free tier.
+          </div>
+        </li>
+        <li class="service">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <div class="service-text">
+            <strong>Google ML Kit</strong>
+            On-device barcode scanning and face detection.
+          </div>
+        </li>
+      </ul>
+
+      <p style="margin-top:16px;">
+        Your use of these services is also governed by their respective terms and privacy policies.
+      </p>
+    </section>
+
+    <!-- 07 -->
+    <section class="card reveal" id="warranties">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 07</span>
+          <h2>Disclaimer of Warranties</h2>
+        </div>
+      </div>
+      <div class="caps-block">
+        <strong>To the maximum extent permitted by applicable law</strong>, StrictAlarm is provided
+        on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties
+        of any kind, whether express, implied, or statutory, including implied warranties of
+        merchantability, fitness for a particular purpose, non-infringement, or
+        uninterrupted/error-free operation.
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="card reveal" id="liability">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 08</span>
+          <h2>Limitation of Liability</h2>
+        </div>
+      </div>
+      <div class="caps-block">
+        <strong>To the maximum extent permitted by applicable law</strong>, in no event shall
+        Muhammad LLC, its developers, or affiliates be liable for any indirect, incidental,
+        special, consequential, or punitive damages, or any loss of profits, data, missed
+        appointments, missed flights, work or academic penalties, or personal injury arising out
+        of or related to your use of or inability to use StrictAlarm, even if advised of the
+        possibility of such damages.
+      </div>
+      <div class="caps-block" style="margin-top:12px;">
+        Our total aggregate liability for any claim arising out of these Terms or the App shall
+        not exceed the amount you paid to us for the App in the twelve (12) months preceding the
+        claim (or <strong>USD $5.00</strong> if you have not made any purchase).
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="card reveal" id="termination">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 09</span>
+          <h2>Termination &amp; Suspension</h2>
+        </div>
+      </div>
+      <p>
+        You may stop using StrictAlarm at any time by uninstalling the App (and canceling any
+        active subscription via Google Play). We reserve the right to suspend, discontinue, or
+        modify any part of the App or its features at any time without prior notice.
+      </p>
+    </section>
+
+    <!-- 10 -->
+    <section class="card reveal" id="law">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 7h18"/><path d="M5 7 2 13h6z"/><path d="M19 7l-3 6h6z"/><path d="M7 21h10"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 10</span>
+          <h2>Governing Law</h2>
+        </div>
+      </div>
+      <p>
+        These Terms shall be governed by and construed in accordance with the laws of
+        <strong>Pakistan</strong>, without regard to conflict-of-law principles, except where
+        mandatory consumer protection laws in your country of residence apply.
+      </p>
+    </section>
+
+    <!-- 11 -->
+    <section class="card reveal" id="changes">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 11</span>
+          <h2>Changes to These Terms</h2>
+        </div>
+      </div>
+      <p>
+        We may update these Terms from time to time. When we make changes, we will update the
+        Last Updated date at the top of this page. Continued use of StrictAlarm after changes
+        take effect constitutes your acceptance of the revised Terms.
+      </p>
+    </section>
+
+    <!-- 12 -->
+    <section class="card reveal" id="contact">
+      <div class="card-head">
+        <div class="sec-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="sec-title-wrap">
+          <span class="sec-num">Section 12</span>
+          <h2>Contact Us</h2>
+        </div>
+      </div>
+      <p>
+        If you have any questions about these Terms of Service, Premium purchases, or StrictAlarm,
+        please contact us:
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Developer
+          </span>
+          <span class="contact-value">Muhammad LLC (Muhammad Bilal)</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </span>
+          <div class="copy-row">
+            <span class="contact-value"><a href="mailto:mbilal10388@gmail.com">mbilal10388@gmail.com</a></span>
+            <button class="copy-btn" id="copyEmail" title="Copy email" aria-label="Copy email address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Location
+          </span>
+          <span class="contact-value">Talagang, Punjab, Pakistan</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="logo-wrap sm">
+        <img class="header-icon" src="logo.webp" alt="" aria-hidden="true" width="30" height="30" onerror="this.classList.add('is-missing')" />
+        <span class="logo-fallback" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="13" r="8"/>
+            <path d="M12 9.5V13l2.6 2.2"/>
+          </svg>
+        </span>
+      </div>
+      <span>© 2026 Muhammad LLC · StrictAlarm</span>
+    </div>
+    <div class="footer-links">
+      <a href="#purpose">Purpose</a>
+      <a href="#purchases">Purchases</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span>Last updated November 22, 2026</span>
+  </div>
+</footer>
+
+<!-- ================= BACK TO TOP ================= -->
+<button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+  <svg class="ring" viewBox="0 0 48 48" aria-hidden="true">
+    <circle class="ring-track" cx="24" cy="24" r="21" />
+    <circle class="ring-fill" id="ringFill" cx="24" cy="24" r="21" />
+  </svg>
+  <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="m5 12 7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toastText">Email copied</span>
+</div>
+
+<script>
+  /* ============================================================
+     READING PROGRESS + BACK TO TOP PROGRESS RING
+     ============================================================ */
+  (function () {
+    var progress = document.getElementById('readProgress');
+    var toTop = document.getElementById('toTop');
+    var ring = document.getElementById('ringFill');
+    var circumference = 2 * Math.PI * 21;
+    var ticking = false;
+
+    ring.style.strokeDasharray = circumference;
+
+    function update() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+      progress.style.width = (pct * 100) + '%';
+
+      if (scrollTop > 600) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+
+      ring.style.strokeDashoffset = circumference * (1 - pct);
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  /* ============================================================
+     LOGO FALLBACK (if logo.webp fails to load, show clock icon)
+     ============================================================ */
+  (function () {
+    var imgs = document.querySelectorAll('.header-icon');
+    Array.prototype.forEach.call(imgs, function (img) {
+      if (img.complete && img.naturalWidth === 0) {
+        img.classList.add('is-missing');
+      }
+      img.addEventListener('error', function () {
+        img.classList.add('is-missing');
+      });
+      img.addEventListener('load', function () {
+        img.classList.remove('is-missing');
+      });
+    });
+  })();
+
+  /* ============================================================
+     TOC ACTIVE SECTION HIGHLIGHTING
+     ============================================================ */
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc nav a'));
+    var sections = links
+      .map(function (l) { return document.querySelector(l.getAttribute('href')); })
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    if ('IntersectionObserver' in window) {
+      var visible = new Map();
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            visible.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visible.delete(entry.target.id);
+          }
+        });
+
+        var bestId = null;
+        var bestRatio = -1;
+        visible.forEach(function (ratio, id) {
+          if (ratio > bestRatio) { bestRatio = ratio; bestId = id; }
+        });
+
+        if (!bestId) {
+          var scrollY = window.scrollY + 120;
+          sections.forEach(function (sec) {
+            if (sec.offsetTop <= scrollY) bestId = sec.id;
+          });
+        }
+
+        links.forEach(function (link) {
+          link.classList.toggle('active', bestId && link.getAttribute('href') === '#' + bestId);
+        });
+      }, {
+        rootMargin: '-8% 0px -60% 0px',
+        threshold: [0, .1, .25, .5, .75, 1]
+      });
+
+      sections.forEach(function (s) { observer.observe(s); });
+    }
+  })();
+
+  /* ============================================================
+     SCROLL REVEAL
+     ============================================================ */
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('visible'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach(function (el) { observer.observe(el); });
+  })();
+
+  /* ============================================================
+     COPY EMAIL + TOAST
+     ============================================================ */
+  (function () {
+    var btn = document.getElementById('copyEmail');
+    var toast = document.getElementById('toast');
+    var toastText = document.getElementById('toastText');
+    var email = 'mbilal10388@gmail.com';
+    var hideTimer = null;
+
+    function showToast(msg) {
+      toastText.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    function legacyCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      return ok;
+    }
+
+    if (btn) {
+      btn.addEventListener('click', function () {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(function () {
+            showToast('Email copied to clipboard');
+          }).catch(function () {
+            if (legacyCopy(email)) showToast('Email copied to clipboard');
+            else showToast('Could not copy — ' + email);
+          });
+        } else {
+          if (legacyCopy(email)) showToast('Email copied to clipboard');
+          else showToast('Could not copy — ' + email);
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
